@@ -1,6 +1,8 @@
-# See http://peak.telecommunity.com/DevCenter/setuptools#namespace-packages
-try:
-    __import__('pkg_resources').declare_namespace(__name__)
-except ImportError:
-    from pkgutil import extend_path
-    __path__ = extend_path(__path__, __name__)
+# -*- coding: utf-8 -*-
+#XXX TODO from npv_calculation import calculate_npv as npv
+def npv(*args, **kw):
+    return 1
+
+#XXX TODO from npv_calculation import calculate_escp as escp
+def escp(*args, **kw):
+    return 1
