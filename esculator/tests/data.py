@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from datetime import date
+from datetime import datetime
 
 
 DISCOUNT_RATE = 0.125
@@ -9,7 +9,7 @@ BASE_BID = {'NBUdiscountRate': DISCOUNT_RATE,
             'annualCostsReduction': ANNUAL_COSTS_REDUCTION,
             'yearlyPaymentsPercentage': 0.70,
             'contractDuration': {'years': 2, 'days': 10},
-            'announcementDate': date(2017, 8, 18)}
+            'announcementDate': datetime(2017, 8, 18)}
 
 CONTRACT_DURATION = {
     'input': [
@@ -48,10 +48,10 @@ CONTRACT_DURATION = {
 
 ANNOUNCEMENT_DATE = {
     'input': [
-        date(2017, 5, 2), date(2017, 5, 3), date(2017, 5, 4),
-        date(2017, 5, 5), date(2017, 5, 6), date(2017, 5, 7),
-        date(2017, 5, 8), date(2017, 5, 9), date(2017, 5, 10),
-        date(2017, 5, 11),
+        datetime(2017, 5, 2), datetime(2017, 5, 3), datetime(2017, 5, 4),
+        datetime(2017, 5, 5), datetime(2017, 5, 6), datetime(2017, 5, 7),
+        datetime(2017, 5, 8), datetime(2017, 5, 9), datetime(2017, 5, 10),
+        datetime(2017, 5, 11),
     ],
     'expected_results': [
         {'amountContract': '303.01667123288',

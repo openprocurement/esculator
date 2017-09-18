@@ -7,6 +7,7 @@ from fractions import Fraction
 def discount_rate_days(announcement_date, days_per_year,
                        npv_calculation_duration):
 
+    announcement_date = announcement_date.date()
     first_year_days = (date(announcement_date.year, 12, 31) - announcement_date).days
     days = [first_year_days] + [days_per_year] * (npv_calculation_duration - 1)
     days.append(days_per_year - first_year_days)
