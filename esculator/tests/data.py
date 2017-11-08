@@ -3,10 +3,9 @@ from datetime import datetime
 
 
 DISCOUNT_RATE = 0.125
-ANNUAL_COSTS_REDUCTION = [92.47] + [250] * 20
 
 BASE_BID = {'NBUdiscountRate': DISCOUNT_RATE,
-            'annualCostsReduction': ANNUAL_COSTS_REDUCTION,
+            'annualCostsReduction': [92.47] + [250] * 20,
             'yearlyPaymentsPercentage': 0.70,
             'contractDuration': {'years': 2, 'days': 10},
             'announcementDate': datetime(2017, 8, 18)}
@@ -103,5 +102,113 @@ PAYMENTS_PERCENTAGE = {
          'amountPerformance': '1475.25980969253'},
         {'amountContract': '405.48284931507',
          'amountPerformance': '1471.01051166258'},
+    ]
+}
+
+
+BIDS = {
+    'input': [
+        {
+            'contractDuration': {'years': 0, 'days': 1},
+            'NBUdiscountRate': 0.0000,
+            'yearlyPaymentsPercentage': 0.7000,
+            'annualCostsReduction': [0] * 20 + [0.01]
+        },
+        {
+            'contractDuration': {'years': 0, 'days': 1},
+            'NBUdiscountRate': 0.1250,
+            'yearlyPaymentsPercentage': 0.8999,
+            'annualCostsReduction': [0] * 20 + [10000]
+        },
+        {
+            'contractDuration': {'years': 0, 'days': 1},
+            'NBUdiscountRate': 0.1250,
+            'yearlyPaymentsPercentage': 0.8999,
+            'annualCostsReduction': [0] * 10 + [10000] * 11
+        },
+        {
+            'contractDuration': {'years': 9, 'days': 1},
+            'NBUdiscountRate': 0.1250,
+            'yearlyPaymentsPercentage': 0.8999,
+            'annualCostsReduction': [0] * 10 + [10000] * 11
+        },
+        {
+            'contractDuration': {'years': 9, 'days': 135},
+            'NBUdiscountRate': 0.1250,
+            'yearlyPaymentsPercentage': 0.8999,
+            'annualCostsReduction': [0] * 10 + [10000] * 11
+        },
+        {
+            'contractDuration': {'years': 9, 'days': 136},
+            'NBUdiscountRate': 0.1250,
+            'yearlyPaymentsPercentage': 0.8999,
+            'annualCostsReduction': [0] * 10 + [10000] * 11
+        },
+        {
+            'contractDuration': {'years': 9, 'days': 136},
+            'NBUdiscountRate': 0.1250,
+            'yearlyPaymentsPercentage': 0.8999,
+            'annualCostsReduction': [0] * 11 + [10000] * 10
+        },
+        {
+            'contractDuration': {'years': 10, 'days': 136},
+            'NBUdiscountRate': 0.1250,
+            'yearlyPaymentsPercentage': 0.8999,
+            'annualCostsReduction': [0] * 11 + [10000] * 10
+        },
+        {
+            'contractDuration': {'years': 2, 'days': 10},
+            'NBUdiscountRate': 0.1250,
+            'yearlyPaymentsPercentage': 0.7000,
+            'annualCostsReduction': [92.47] + [250] * 20,
+            'announcementDate': datetime(2017, 12, 30)
+        },
+        {
+            'contractDuration': {'years': 2, 'days': 10},
+            'NBUdiscountRate': 0.1250,
+            'yearlyPaymentsPercentage': 0.7000,
+            'annualCostsReduction': [0] + [250] * 20,
+            'announcementDate': datetime(2017, 12, 31)
+        },
+        {
+            'contractDuration': {'years': 2, 'days': 10},
+            'NBUdiscountRate': 0.1250,
+            'yearlyPaymentsPercentage': 0.7000,
+            'annualCostsReduction': [92.47] + [250] * 20,
+            'announcementDate': datetime(2018, 1, 1)
+        },
+        {
+            'contractDuration': {'years': 2, 'days': 10},
+            'NBUdiscountRate': 0.1250,
+            'yearlyPaymentsPercentage': 0.7000,
+            'annualCostsReduction': [0] + [250] * 20,
+            'announcementDate': datetime(2018, 12, 31)
+        },
+    ],
+    'expected_results': [
+        {'amountContract': '0.00000000000',
+         'amountPerformance': '0.00630136986'},
+        {'amountContract': '0.00000000000',
+         'amountPerformance': '595.63605641337'},
+        {'amountContract': '0.00000000000',
+         'amountPerformance': '18928.43655328417'},
+        {'amountContract': '0.00000000000',
+         'amountPerformance': '18928.43655328417'},
+        {'amountContract': '0.00000000000',
+         'amountPerformance': '18928.43655328417'},
+        {'amountContract': '24.65479452055',
+         'amountPerformance': '18921.17970907397'},
+        {'amountContract': '0.00000000000',
+         'amountPerformance': '15985.05602575644'},
+        {'amountContract': '24.65479452055',
+         'amountPerformance': '15978.60549756960'},
+        {'amountContract': '419.04406849315',
+         'amountPerformance': '1540.63620088962'},
+        {'amountContract': '354.79452054795',
+         'amountPerformance': '1513.14383477073'},
+        {'amountContract': '245.00297260274',
+         'amountPerformance': '1471.31191860622'},
+        {'amountContract': '354.79452054795',
+         'amountPerformance': '1513.14383477073'},
     ]
 }

@@ -51,8 +51,11 @@ def period_payment(yearly_payments_percentage, client_cost_reduction,
     yearly_payments_percentage = Fraction(str(yearly_payments_percentage))
     client_cost_reduction = Fraction(str(client_cost_reduction))
 
-    return (yearly_payments_percentage * client_cost_reduction *
-            Fraction(days_with_payments, days_for_discount_rate))
+    if days_with_payments == 0:
+        payments = Fraction(0)
+    else:
+        payments = Fraction(days_with_payments, days_for_discount_rate)
+    return (yearly_payments_percentage * client_cost_reduction * payments)
 
 
 def calculate_payments(yearly_payments_percentage, cost_reductions,

@@ -4,7 +4,9 @@ from fractions import Fraction
 from esculator import npv, escp
 from esculator.tests.data import (
     CONTRACT_DURATION, ANNOUNCEMENT_DATE, PAYMENTS_PERCENTAGE, BASE_BID,
+    BIDS
 )
+
 
 class TestCalculationsMixin(object):
     __test__ = False  # nosetests directive
@@ -12,6 +14,41 @@ class TestCalculationsMixin(object):
     def test_calculations(self):
         for i, val in enumerate(self.test_data['input']):
             self.bid[self.field_name] = val
+
+            amount_perfomance = npv(
+                self.bid['contractDuration']['years'],
+                self.bid['contractDuration']['days'],
+                self.bid['yearlyPaymentsPercentage'],
+                self.bid['annualCostsReduction'],
+                self.bid['announcementDate'],
+                self.bid['NBUdiscountRate'],
+            )
+
+            self.assertTrue(isinstance(amount_perfomance, Fraction))
+
+            expected = self.test_data['expected_results'][i]['amountPerformance']
+            self.assertEqual(humanize(amount_perfomance), expected)
+
+            amount_contract = escp(
+                self.bid['contractDuration']['years'],
+                self.bid['contractDuration']['days'],
+                self.bid['yearlyPaymentsPercentage'],
+                self.bid['annualCostsReduction'],
+                self.bid['announcementDate'],
+            )
+
+            self.assertTrue(isinstance(amount_contract, Fraction))
+
+            expected = self.test_data['expected_results'][i]['amountContract']
+            self.assertEqual(humanize(amount_contract), expected)
+
+
+class TestBidCalculationsMixin(object):
+    __test__ = False
+
+    def test_calculations(self):
+        for i, val in enumerate(self.test_data['input']):
+            self.bid.update(val)
 
             amount_perfomance = npv(
                 self.bid['contractDuration']['years'],
@@ -59,6 +96,12 @@ class AnnouncementDateTest(TestCalculationsMixin, unittest.TestCase):
     __test__ = True
     field_name = 'announcementDate'
     test_data = ANNOUNCEMENT_DATE
+    bid = deepcopy(BASE_BID)
+
+
+class CustomBidFields(TestBidCalculationsMixin, unittest.TestCase):
+    __test__ = True
+    test_data = BIDS
     bid = deepcopy(BASE_BID)
 
 
