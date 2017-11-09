@@ -167,7 +167,7 @@ BIDS = {
             'contractDuration': {'years': 2, 'days': 10},
             'NBUdiscountRate': 0.1250,
             'yearlyPaymentsPercentage': 0.7000,
-            'annualCostsReduction': [0] + [250] * 20,
+            'annualCostsReduction': [92.47] + [250] * 20,
             'announcementDate': datetime(2017, 12, 31)
         },
         {

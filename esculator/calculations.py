@@ -70,7 +70,11 @@ def calculate_payments(yearly_payments_percentage, cost_reductions,
 def calculate_income(cost_reductions, days_for_discount_rate,
                      client_payments):
     # first period income
-    income = [Fraction(str(cost_reductions[0])) - client_payments[0]]
+    # Fix: YYYY-12-31 bug
+    if client_payments[0] == 0:
+        income = [Fraction(0)]
+    else:
+        income = [Fraction(str(cost_reductions[0])) - client_payments[0]]
     # XXX first period income should be calculated as other periods ???
     # contract_duration = contract_duration_years * days_per_year + contract_duration_days
     # first_period_duration = min(contract_duration, days_for_discount_rate[0])
