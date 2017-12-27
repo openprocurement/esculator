@@ -71,7 +71,7 @@ def calculate_income(cost_reductions, days_for_discount_rate,
                      client_payments):
     # first period income
     # Fix: YYYY-12-31 bug
-    if client_payments[0] == 0:
+    if days_for_discount_rate[0] == 0:
         income = [Fraction(0)]
     else:
         income = [Fraction(str(cost_reductions[0])) - client_payments[0]]
