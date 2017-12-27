@@ -440,6 +440,34 @@ BIDS = {
             'yearlyPaymentsPercentage': 0.8999,
             'annualCostsReduction': [0] * 11 + [10000] * 10
         },
+        {
+            'contractDuration': {'years': 2, 'days': 10},
+            'NBUdiscountRate': 0.1250,
+            'yearlyPaymentsPercentage': 0.7000,
+            'annualCostsReduction': [92.47] + [250] * 20,
+            'announcementDate': datetime(2017, 12, 30)
+        },
+        {
+            'contractDuration': {'years': 2, 'days': 10},
+            'NBUdiscountRate': 0.1250,
+            'yearlyPaymentsPercentage': 0.7000,
+            'annualCostsReduction': [92.47] + [250] * 20,
+            'announcementDate': datetime(2017, 12, 31)
+        },
+        {
+            'contractDuration': {'years': 2, 'days': 10},
+            'NBUdiscountRate': 0.1250,
+            'yearlyPaymentsPercentage': 0.7000,
+            'annualCostsReduction': [92.47] + [250] * 20,
+            'announcementDate': datetime(2018, 1, 1)
+        },
+        {
+            'contractDuration': {'years': 2, 'days': 10},
+            'NBUdiscountRate': 0.1250,
+            'yearlyPaymentsPercentage': 0.7000,
+            'annualCostsReduction': [0] + [250] * 20,
+            'announcementDate': datetime(2018, 12, 31)
+        },
     ],
     'expected_results': [
         {'amountContract': '0.00000000000',
@@ -457,6 +485,14 @@ BIDS = {
         {'amountContract': '0.00000000000',
          'amountPerformance': '15985.05602575644'},
         {'amountContract': '24.65479452055',
-         'amountPerformance': '15978.60549756960'}
+         'amountPerformance': '15978.60549756960'},
+        {'amountContract': '419.04406849315',
+         'amountPerformance': '1540.63620088962'},
+        {'amountContract': '354.79452054795',
+         'amountPerformance': '1513.14383477073'},
+        {'amountContract': '245.00297260274',
+         'amountPerformance': '1471.31191860622'},
+        {'amountContract': '354.79452054795',
+         'amountPerformance': '1513.14383477073'},
     ]
 }
